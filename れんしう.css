@@ -1,0 +1,36 @@
+h1{color: black;}
+p{color: red;}
+h2{color: gray;}
+body{background-color: white;}
+
+
+*{box-sizing: border-box;}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.test-box{
+    width: 300px;
+    min-height: 200px;
+    padding: 20px;
+    border: 10px solid black;
+    background-color: lightskyblue;
+}
+
+
+@media (max-width: 767px){
+    .container{
+        flex-direction: colum;
+        gap:20px;
+    }
+
+    .test-box{
+        width: 150px;
+        padding: 10px;
+        border: 5px solod black;
+    }
+}

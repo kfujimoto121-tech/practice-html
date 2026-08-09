@@ -2,20 +2,19 @@
 const button = document.getElementById("colorButton");
 const text = document.getElementById("myText");
 
-//現在の文字の状態を記憶しておくフラグ変数(boolean)をつくる
-let isVisible = true; //最初は表示されているのでtrue
+//外部からデータをロードする非同期関数の定義
+async function fetchUserData(){
+    text.textContent = "データをロード中です...";
+    try{
+        const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+        const userData = await response.json();
+        text.textContent = "取得した名前:" + userData.name;
+    }catch(error){
+        text.textContent = "データの取得に失敗しました。";
+    }
+}
 
 //ボタンをクリックしたときの処理
 button.addEventListener("click", function(){
-    if(isVisible === false){
-        text.style.display = "block";
-        
-        isVisible = true; //文字を表示にする
-
-        button.textContent = "文字を非表示にする";
-    }else{
-        text.style.display = "none";
-        isVisible = false; //文字を非表示にする
-        button.textContent = "文字を表示する";
-    }
+    fetchUserData();
 });

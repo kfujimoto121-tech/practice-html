@@ -22,7 +22,7 @@ body{background-color: white;}
 }
 
 
-@media (max-width: 767px){
+@media (max-width: 600px){
     .container{
         flex-direction: colum;
         gap:20px;
